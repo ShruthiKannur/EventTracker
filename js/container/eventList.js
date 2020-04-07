@@ -42,7 +42,7 @@ export class EventList extends PureComponent {
         >
           <View style={{flex: 1, justifyContent: 'flex-end', paddingBottom: padding, backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
             <View style={{flex: 0.3, backgroundColor: 'white', flexDirection: 'column'}}>
-              <PickList selectedVal={this.state.selectedVal} handleValueChange={this.handleValueChange} />
+              <PickList selectedVal={this.state.selectedVal} handleValueChange={this.handleValueChange} pickerValues={['List', 'Grid']}/>
             </View>
           </View>
         </Modal>

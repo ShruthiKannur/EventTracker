@@ -30,10 +30,10 @@ const handlers = {
       trackedEvents: {...copyState}
     }
   },
-  ['INITIALISE_TRACKED_EVENTS'] : (state, payload = []) => {
+  ['INITIALISE_TRACKED_EVENTS'] : (state, payload = {}) => {
     return {
       ...state,
-      trackedEvents: [...payload]
+      trackedEvents: {...payload}
     }
   }
 };

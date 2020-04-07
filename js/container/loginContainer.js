@@ -23,19 +23,17 @@ export class LoginContainer extends PureComponent {
 
   initialiseDb = async () => {
     initDB(this.props.userName).then((res = '') => {
-      console.log('res obtained = ', res);
       const events = (res[0] || {}).eventInfo || '';
       if (events.length) {
         const ids = (events).split(',');
-        const items = ids.map((id) => {
-          return availableEvents.find((item) => {
+        const items = {};
+        ids.forEach((id, i) => {
+          availableEvents.find((item) => {
             if (item.id == id) {
-              console.log('item =', item);
-              return item;
+              items[id] = item;
             }
           });
         });
-        console.log("final items = ", items);
         items && this.props.initialiseTrackedEvents(items);
       } else {
         this.state.reload && this.props.initialiseTrackedEvents();
