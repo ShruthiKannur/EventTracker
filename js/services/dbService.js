@@ -33,7 +33,7 @@ export async function initDB(username) {
       openDb().then(async (database) => {
         db = database;
         database.transaction((txn) => {
-          txn.executeSql('DROP TABLE IF EXISTS TrackedEvents');
+          //txn.executeSql('DROP TABLE IF EXISTS TrackedEvents');
           txn.executeSql('CREATE TABLE IF NOT EXISTS TrackedEvents (userName VARCHAR(50) PRIMARY KEY, eventInfo VARCHAR(50))').catch((e) => {
             console.log('error while creating table');
           });
